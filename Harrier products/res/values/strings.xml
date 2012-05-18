@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- General Strings -->
+    <string name="app_name">Harrier products</string>
+	<string name="image_content_descripton"></string>
+    
+    
+    
+    <!-- Layout -> Main Strings -->
+    <string name="main_activity_newProject_title">Create new project</string>
+    <string name="main_activity_newProject_tagline">Create new project</string>
+    
+</resources>
