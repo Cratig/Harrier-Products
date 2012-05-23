@@ -21,8 +21,8 @@ public class StandardAdapter extends BaseAdapter{
 	}
 	
 	public void buildActivities() {
-		this.items.add(new StandardAdapterListItem(android.R.drawable.ic_media_play, R.string.main_activity_newProject_title, R.string.main_activity_newProject_tagline));
-		this.items.add(new StandardAdapterListItem(android.R.drawable.ic_menu_info_details, "Test 2", "Line 2"));
+		this.items.add(new StandardAdapterListItem(android.R.drawable.ic_media_play, context.getString(R.string.main_activity_newProject_title), context.getString(R.string.main_activity_newProject_tagline), StandardAdapterListItem.listItem_ACTIVITY_NEW));
+		this.items.add(new StandardAdapterListItem(android.R.drawable.ic_menu_info_details, "Test 2", "Line 2", StandardAdapterListItem.listItem_ACTIVITY_TEST));
 	}
 	
 	public int getCount() {
@@ -68,17 +68,22 @@ public class StandardAdapter extends BaseAdapter{
 		
 		return view;
 	}
-
 }
 
 class StandardAdapterListItem {
+	final static int listItem_ACTIVITY_NEW = 1;
+	final static int listItem_ACTIVITY_TEST = 2;
+	
+	
 	int image;
 	String title;
 	String tagline;
+	int action;
 	
-	public StandardAdapterListItem(int _image, String _title, String _tagline) {
+	public StandardAdapterListItem(int _image, String _title, String _tagline, int _action) {
 		this.image = _image;
 		this.title = _title;
 		this.tagline = _tagline;
-	}	
+		this.action = _action;
+	}
 }

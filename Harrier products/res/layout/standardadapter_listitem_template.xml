@@ -1,32 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" >
-
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:padding="2dp" >
+
     <ImageView
         android:id="@+id/ImageView_standardadapter_listitem_template_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
-        android:contentDescription="@string/image_content_descripton" />
+        android:contentDescription="@string/image_content_descripton"
+        android:scaleType="fitXY" />
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_toRightOf="@+id/ImageView_standardadapter_listitem_template_image"
-        android:orientation="vertical" >
+        android:orientation="vertical"
+        android:background="@android:drawable/alert_dark_frame" >
 
         <TextView
             android:id="@+id/TextView_stndardadapter_listitem_template_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@android:style/TextAppearance.Large" />
 
         <TextView
             android:id="@+id/TextView_stndardadapter_listitem_template_tagline"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@android:style/TextAppearance.Small" />
     </LinearLayout>
 
 </RelativeLayout>
