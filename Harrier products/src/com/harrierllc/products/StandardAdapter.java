@@ -25,6 +25,24 @@ public class StandardAdapter extends BaseAdapter{
 		this.items.add(new StandardAdapterListItem(android.R.drawable.ic_menu_info_details, "Test 2", "Line 2", StandardAdapterListItem.listItem_ACTIVITY_TEST));
 	}
 	
+	public void buildProjects() {
+		this.items.add(new StandardAdapterListItem(android.R.drawable.ic_menu_crop, "Project 1", "create your project dreams here", StandardAdapterListItem.listItem_PROJECT_TEST));
+		this.items.add(new StandardAdapterListItem(android.R.drawable.ic_menu_crop, "Project 1", "create your project dreams here", StandardAdapterListItem.listItem_PROJECT_TEST));
+		this.items.add(new StandardAdapterListItem(android.R.drawable.ic_menu_crop, "Project 1", "create your project dreams here", StandardAdapterListItem.listItem_PROJECT_TEST));
+		this.items.add(new StandardAdapterListItem(android.R.drawable.ic_menu_crop, "Project 1", "create your project dreams here", StandardAdapterListItem.listItem_PROJECT_TEST));
+		this.items.add(new StandardAdapterListItem(android.R.drawable.ic_menu_crop, "Project 1", "create your project dreams here", StandardAdapterListItem.listItem_PROJECT_TEST));
+		this.items.add(new StandardAdapterListItem(android.R.drawable.ic_menu_crop, "Project 1", "create your project dreams here", StandardAdapterListItem.listItem_PROJECT_TEST));
+		this.items.add(new StandardAdapterListItem(android.R.drawable.ic_menu_crop, "Project 1", "create your project dreams here", StandardAdapterListItem.listItem_PROJECT_TEST));
+		this.items.add(new StandardAdapterListItem(android.R.drawable.ic_menu_crop, "Project 1", "create your project dreams here", StandardAdapterListItem.listItem_PROJECT_TEST));
+		this.items.add(new StandardAdapterListItem(android.R.drawable.ic_menu_crop, "Project 1", "create your project dreams here", StandardAdapterListItem.listItem_PROJECT_TEST));
+		this.items.add(new StandardAdapterListItem(android.R.drawable.ic_menu_crop, "Project 1", "create your project dreams here", StandardAdapterListItem.listItem_PROJECT_TEST));
+		this.items.add(new StandardAdapterListItem(android.R.drawable.ic_menu_crop, "Project 1", "create your project dreams here", StandardAdapterListItem.listItem_PROJECT_TEST));
+		this.items.add(new StandardAdapterListItem(android.R.drawable.ic_menu_crop, "Project 1", "create your project dreams here", StandardAdapterListItem.listItem_PROJECT_TEST));
+		this.items.add(new StandardAdapterListItem(android.R.drawable.ic_menu_crop, "Project 1", "create your project dreams here", StandardAdapterListItem.listItem_PROJECT_TEST));
+		this.items.add(new StandardAdapterListItem(android.R.drawable.ic_menu_crop, "Project 1", "create your project dreams here", StandardAdapterListItem.listItem_PROJECT_TEST));
+		this.items.add(new StandardAdapterListItem(android.R.drawable.ic_menu_crop, "Project 1", "create your project dreams here", StandardAdapterListItem.listItem_PROJECT_TEST));
+	}
+	
 	public int getCount() {
 		return this.items.size();
 	}
@@ -74,6 +92,8 @@ class StandardAdapterListItem {
 	final static int listItem_ACTIVITY_NEW = 1;
 	final static int listItem_ACTIVITY_TEST = 2;
 	
+	final static int listItem_PROJECT_TEST = 1;
+	final static int listItem_PROJECT_TEST2 = 2;
 	
 	int image;
 	String title;

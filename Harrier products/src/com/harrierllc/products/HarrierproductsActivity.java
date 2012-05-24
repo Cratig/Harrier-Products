@@ -2,11 +2,14 @@ package com.harrierllc.products;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
@@ -19,6 +22,8 @@ public class HarrierproductsActivity extends Activity {
 	private StandardAdapter activitiesAdapter;
 	private ProgressDialog progressDialog;
 
+	private ListView activitiesView;
+
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -29,7 +34,7 @@ public class HarrierproductsActivity extends Activity {
 
 		activitiesAdapter.buildActivities();
 
-		ListView activitiesView = (ListView) findViewById(R.id.ListView_main_activitiesList);
+		activitiesView = (ListView) findViewById(R.id.ListView_main_activitiesList);
 		activitiesView.setAdapter(activitiesAdapter);
 		activitiesView.setOnItemClickListener(new OnItemClickListener() {
 
@@ -38,6 +43,10 @@ public class HarrierproductsActivity extends Activity {
 				StandardAdapterListItem item = (StandardAdapterListItem) activitiesAdapter
 						.getItem(position);
 
+				Animation listAnim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.listitem_select);
+				
+				view.startAnimation(listAnim);
+				
 				switch (item.action) {
 				case StandardAdapterListItem.listItem_ACTIVITY_NEW:
 					startNewProject();
@@ -55,6 +64,10 @@ public class HarrierproductsActivity extends Activity {
 	private void startNewProject() {
 		Log.i(tag, "User selected new project");
 		showProgressDialog();
+		
+		Intent intent = new Intent();
+		intent.setClass(this, NewProjectActivity.class);
+		startActivity(intent);
 
 	}
 
