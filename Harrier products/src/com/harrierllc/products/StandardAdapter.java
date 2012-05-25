@@ -86,6 +86,7 @@ public class StandardAdapter extends BaseAdapter{
 		
 		return view;
 	}
+	
 }
 
 class StandardAdapterListItem {

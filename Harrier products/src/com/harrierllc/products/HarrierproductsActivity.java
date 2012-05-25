@@ -18,7 +18,7 @@ public class HarrierproductsActivity extends Activity {
 	static final String tag = "Startup activity";
 
 	static final int PROGRESSDIALOG_DISMISS_DELAY = 3000;
-	
+
 	private StandardAdapter activitiesAdapter;
 	private ProgressDialog progressDialog;
 
@@ -38,24 +38,40 @@ public class HarrierproductsActivity extends Activity {
 		activitiesView.setAdapter(activitiesAdapter);
 		activitiesView.setOnItemClickListener(new OnItemClickListener() {
 
-			public void onItemClick(AdapterView<?> parent, View view,
+			public void onItemClick(final AdapterView<?> parent, View view,
 					int position, long id) {
-				StandardAdapterListItem item = (StandardAdapterListItem) activitiesAdapter
+				final StandardAdapterListItem item = (StandardAdapterListItem) activitiesAdapter
 						.getItem(position);
 
-				Animation listAnim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.listitem_select);
+				Animation listView_slideRight = AnimationUtils.loadAnimation(getApplicationContext(),  R.anim.listitem_select);
+
+				listView_slideRight
+						.setAnimationListener(new Animation.AnimationListener() {
+
+							public void onAnimationStart(Animation animation) {
+								parent.setEnabled(false);
+							}
+
+							public void onAnimationRepeat(Animation animation) {
+
+							}
+
+							public void onAnimationEnd(Animation animation) {
+								switch (item.action) {
+								case StandardAdapterListItem.listItem_ACTIVITY_NEW:
+									startNewProject();
+									break;
+								case StandardAdapterListItem.listItem_ACTIVITY_TEST:
+									break;
+								default:
+									break;
+								}
+								
+								parent.setEnabled(true);
+							}
+						});
 				
-				view.startAnimation(listAnim);
-				
-				switch (item.action) {
-				case StandardAdapterListItem.listItem_ACTIVITY_NEW:
-					startNewProject();
-					break;
-				case StandardAdapterListItem.listItem_ACTIVITY_TEST:
-					break;
-				default:
-					break;
-				}
+				view.startAnimation(listView_slideRight);
 			}
 		});
 
@@ -64,7 +80,7 @@ public class HarrierproductsActivity extends Activity {
 	private void startNewProject() {
 		Log.i(tag, "User selected new project");
 		showProgressDialog();
-		
+
 		Intent intent = new Intent();
 		intent.setClass(this, NewProjectActivity.class);
 		startActivity(intent);
@@ -93,8 +109,7 @@ public class HarrierproductsActivity extends Activity {
 		}
 
 		progressDialog.show();
-		
-		
+
 		Thread dismissProgressDialogThread = new Thread() {
 			@Override
 			public void run() {
@@ -106,7 +121,7 @@ public class HarrierproductsActivity extends Activity {
 				}
 			}
 		};
-		
+
 		dismissProgressDialogThread.start();
 	}
 
@@ -115,7 +130,7 @@ public class HarrierproductsActivity extends Activity {
 			hideProgressDialog();
 		}
 	};
-	
+
 	private void hideProgressDialog() {
 		if (progressDialog == null) {
 			return;
@@ -126,5 +141,14 @@ public class HarrierproductsActivity extends Activity {
 		}
 
 		progressDialog.dismiss();
+	}
+	
+	protected void onSaveInstanceState(Bundle outState) {
+		super.onSaveInstanceState(outState);
+	}
+	
+	@Override
+	protected void onRestoreInstanceState(Bundle savedInstanceState) {
+		super.onRestoreInstanceState(savedInstanceState);
 	}
 }
