@@ -16,7 +16,8 @@
         <activity
             android:name=".HarrierproductsActivity"
             android:label="@string/app_name"
-            android:immersive="true" >
+            android:immersive="true"
+            android:configChanges="keyboard|keyboardHidden|orientation" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -22,24 +22,24 @@ public class StandardAdapter extends BaseAdapter{
 	
 	public void buildActivities() {
 		this.items.add(new StandardAdapterListItem(android.R.drawable.ic_media_play, context.getString(R.string.main_activity_newProject_title), context.getString(R.string.main_activity_newProject_tagline), StandardAdapterListItem.listItem_ACTIVITY_NEW));
-		this.items.add(new StandardAdapterListItem(android.R.drawable.ic_menu_info_details, "Test 2", "Line 2", StandardAdapterListItem.listItem_ACTIVITY_TEST));
+		this.items.add(new StandardAdapterListItem(android.R.drawable.ic_menu_info_details, "Test 2", "Line 2", StandardAdapterListItem.listItem_ACTIVITY_TEST, false));
 	}
 	
 	public void buildProjects() {
 		this.items.add(new StandardAdapterListItem(android.R.drawable.ic_menu_crop, "Project 1", "create your project dreams here", StandardAdapterListItem.listItem_PROJECT_TEST));
+		this.items.add(new StandardAdapterListItem(android.R.drawable.ic_menu_crop, "Project 1", "create your project dreams here", StandardAdapterListItem.listItem_PROJECT_TEST, false));
+		this.items.add(new StandardAdapterListItem(android.R.drawable.ic_menu_crop, "Project 1", "create your project dreams here", StandardAdapterListItem.listItem_PROJECT_TEST));
+		this.items.add(new StandardAdapterListItem(android.R.drawable.ic_menu_crop, "Project 1", "create your project dreams here", StandardAdapterListItem.listItem_PROJECT_TEST, false));
+		this.items.add(new StandardAdapterListItem(android.R.drawable.ic_menu_crop, "Project 1", "create your project dreams here", StandardAdapterListItem.listItem_PROJECT_TEST, false));
 		this.items.add(new StandardAdapterListItem(android.R.drawable.ic_menu_crop, "Project 1", "create your project dreams here", StandardAdapterListItem.listItem_PROJECT_TEST));
 		this.items.add(new StandardAdapterListItem(android.R.drawable.ic_menu_crop, "Project 1", "create your project dreams here", StandardAdapterListItem.listItem_PROJECT_TEST));
 		this.items.add(new StandardAdapterListItem(android.R.drawable.ic_menu_crop, "Project 1", "create your project dreams here", StandardAdapterListItem.listItem_PROJECT_TEST));
+		this.items.add(new StandardAdapterListItem(android.R.drawable.ic_menu_crop, "Project 1", "create your project dreams here", StandardAdapterListItem.listItem_PROJECT_TEST, false));
+		this.items.add(new StandardAdapterListItem(android.R.drawable.ic_menu_crop, "Project 1", "create your project dreams here", StandardAdapterListItem.listItem_PROJECT_TEST, false));
+		this.items.add(new StandardAdapterListItem(android.R.drawable.ic_menu_crop, "Project 1", "create your project dreams here", StandardAdapterListItem.listItem_PROJECT_TEST, false));
 		this.items.add(new StandardAdapterListItem(android.R.drawable.ic_menu_crop, "Project 1", "create your project dreams here", StandardAdapterListItem.listItem_PROJECT_TEST));
 		this.items.add(new StandardAdapterListItem(android.R.drawable.ic_menu_crop, "Project 1", "create your project dreams here", StandardAdapterListItem.listItem_PROJECT_TEST));
-		this.items.add(new StandardAdapterListItem(android.R.drawable.ic_menu_crop, "Project 1", "create your project dreams here", StandardAdapterListItem.listItem_PROJECT_TEST));
-		this.items.add(new StandardAdapterListItem(android.R.drawable.ic_menu_crop, "Project 1", "create your project dreams here", StandardAdapterListItem.listItem_PROJECT_TEST));
-		this.items.add(new StandardAdapterListItem(android.R.drawable.ic_menu_crop, "Project 1", "create your project dreams here", StandardAdapterListItem.listItem_PROJECT_TEST));
-		this.items.add(new StandardAdapterListItem(android.R.drawable.ic_menu_crop, "Project 1", "create your project dreams here", StandardAdapterListItem.listItem_PROJECT_TEST));
-		this.items.add(new StandardAdapterListItem(android.R.drawable.ic_menu_crop, "Project 1", "create your project dreams here", StandardAdapterListItem.listItem_PROJECT_TEST));
-		this.items.add(new StandardAdapterListItem(android.R.drawable.ic_menu_crop, "Project 1", "create your project dreams here", StandardAdapterListItem.listItem_PROJECT_TEST));
-		this.items.add(new StandardAdapterListItem(android.R.drawable.ic_menu_crop, "Project 1", "create your project dreams here", StandardAdapterListItem.listItem_PROJECT_TEST));
-		this.items.add(new StandardAdapterListItem(android.R.drawable.ic_menu_crop, "Project 1", "create your project dreams here", StandardAdapterListItem.listItem_PROJECT_TEST));
+		this.items.add(new StandardAdapterListItem(android.R.drawable.ic_menu_crop, "Project 1", "create your project dreams here", StandardAdapterListItem.listItem_PROJECT_TEST, false));
 		this.items.add(new StandardAdapterListItem(android.R.drawable.ic_menu_crop, "Project 1", "create your project dreams here", StandardAdapterListItem.listItem_PROJECT_TEST));
 	}
 	
@@ -59,6 +59,7 @@ public class StandardAdapter extends BaseAdapter{
 		public ImageView image;
 		public TextView title;
 		public TextView tagline;
+		public boolean enabled;
 	}
 	
 	public View getView(int position, View convertView, ViewGroup parent) {
@@ -72,6 +73,7 @@ public class StandardAdapter extends BaseAdapter{
 			itemHolder.image = (ImageView) view.findViewById(R.id.ImageView_standardadapter_listitem_template_image);
 			itemHolder.title = (TextView) view.findViewById(R.id.TextView_stndardadapter_listitem_template_title);
 			itemHolder.tagline = (TextView) view.findViewById(R.id.TextView_stndardadapter_listitem_template_tagline);
+			itemHolder.enabled = true;
 			
 			view.setTag(itemHolder);
 		}
@@ -83,6 +85,9 @@ public class StandardAdapter extends BaseAdapter{
 		iHolder.image.setImageResource(item.image);
 		iHolder.title.setText(item.title);
 		iHolder.tagline.setText(item.tagline);
+		iHolder.enabled = item.enabled;
+		
+		view.setEnabled(iHolder.enabled);
 		
 		return view;
 	}
@@ -100,11 +105,21 @@ class StandardAdapterListItem {
 	String title;
 	String tagline;
 	int action;
+	boolean enabled;
 	
 	public StandardAdapterListItem(int _image, String _title, String _tagline, int _action) {
 		this.image = _image;
 		this.title = _title;
 		this.tagline = _tagline;
 		this.action = _action;
+		this.enabled = true;
+	}
+	
+	public StandardAdapterListItem(int _image, String _title, String _tagline, int _action, boolean _enabled) {
+		this.image = _image;
+		this.title = _title;
+		this.tagline = _tagline;
+		this.action = _action;
+		this.enabled = _enabled;
 	}
 }

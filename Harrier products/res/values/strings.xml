@@ -6,8 +6,11 @@
     
     
     
-    <!-- Layout -> Main Strings -->
+    <!-- main_activity list strings -->
     <string name="main_activity_newProject_title">Create new project</string>
-    <string name="main_activity_newProject_tagline">Create new project</string>
+    <string name="main_activity_newProject_tagline">Show us what you can do</string>
+    
+    <string name="main_activity_existingProject_title">Open existing project</string>
+    <string name="main_activity_existingProject_tagline">Continue your masterpeice!</string>
     
 </resources>
