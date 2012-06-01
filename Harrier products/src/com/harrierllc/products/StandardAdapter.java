@@ -107,12 +107,8 @@ class StandardAdapterListItem {
 	int action;
 	boolean enabled;
 	
-	public StandardAdapterListItem(int _image, String _title, String _tagline, int _action) {
-		this.image = _image;
-		this.title = _title;
-		this.tagline = _tagline;
-		this.action = _action;
-		this.enabled = true;
+	public StandardAdapterListItem(int _image, String _title, String _tagline, int _action) {	
+		this(_image, _title, _tagline, _action, true);
 	}
 	
 	public StandardAdapterListItem(int _image, String _title, String _tagline, int _action, boolean _enabled) {
